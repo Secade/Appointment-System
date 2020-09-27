@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Picker from './secretary-date-picker'
 import {Dropdown, Table} from 'semantic-ui-react'
 import moment from 'moment'
+import axios from 'axios';
 
 import '../secretary_css/secretary-view.css'
 
@@ -18,6 +19,11 @@ export default class SecretaryNavigationbar extends Component{
 
     handleChangeDate=(date)=>{
         this.props.onChangeDate(date)
+    }
+
+    handleLogout(){
+        axios.get('/logout').then(window.location.href ="/");
+            
     }
 
 
@@ -70,7 +76,7 @@ export default class SecretaryNavigationbar extends Component{
                 <div class="item" id="secretary-info-container">
                     <i id="shortcutsInfo" class="large info circle icon"></i>
                 </div>
-                <div class="item" id="secretary-logout-container">
+                <div class="item" id="secretary-logout-container" onClick={() => this.handleLogout()}>
                     <i id="logoutButton" class="large sign out icon link"></i>
                 </div>
             </div>
