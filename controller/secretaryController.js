@@ -45,15 +45,15 @@ router.get('/getDoctors', (req, res)=>{
 //if there is a session currently active, goes immediately that session's page, if not go to login
 router.get("/", async function (req, res) {
     if (req.session.username != null) {
-        let doctor = await Doctor.getAllDoctors();
-        let process = await Process.getAllProcesses();
-       Process.getAllProcesses();
-        Process.find().then(process => res.json(process)).catch(err => res.status(400).json('Error'+err))
-        Doctor.find().then(doctor => res.json(doctor)).catch(err => res.status(400).json('Error'+err))
-        res.render('page_templates/secretary_view.hbs', {
-            doctor: doctor,
-            process: process
-        });
+    //     let doctor = await Doctor.getAllDoctors();
+    //     let process = await Process.getAllProcesses();
+    //    Process.getAllProcesses();
+    //     Process.find().then(process => res.json(process)).catch(err => res.status(400).json('Error'+err))
+    //     Doctor.find().then(doctor => res.json(doctor)).catch(err => res.status(400).json('Error'+err))
+    //     res.render('page_templates/secretary_view.hbs', {
+    //         doctor: doctor,
+    //         process: process
+    //     });
             // res.redirect("/secretary")
     } else {
         res.redirect("/login");
