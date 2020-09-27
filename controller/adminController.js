@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
         //     password: admin.password,
         // });
     } else {
-        res.redirect("/login");
+        res.redirect("/admin");
     }
 });
 
