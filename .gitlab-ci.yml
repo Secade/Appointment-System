@@ -6,7 +6,7 @@
       - gem install dpl
 
     stages:
-      # - builds
+      - builds
       # - test
       - production
       # - auto-test      
@@ -15,13 +15,13 @@
     #   paths:
     #     - node_modules/
 
-    # install_dependencies:
-    #   stage: builds
-    #   script:
-    #     - npm install
-    #   artifacts:
-    #     paths:
-    #       - node_modules/
+    install_dependencies:
+      stage: builds
+      script:
+        - npm install
+      artifacts:
+        paths:
+          - node_modules/
 
     # testing_testing:
     #   stage: test
