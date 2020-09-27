@@ -19,9 +19,6 @@
       stage: builds
       script:
         - npm install
-        - npm run build
-      tags:
-        - docker
       artifacts:
         paths:
           - dist/
