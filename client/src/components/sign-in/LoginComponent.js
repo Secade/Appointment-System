@@ -59,19 +59,19 @@ class LoginComponent extends Component {
         const {history} = this.props;
         switch(type){
             case 1:
-                window.location.href ="/secretary";
+                window.location ="/secretary";
                 console.log('sec');
                 break;
             case 2:
                 axios.get('dentist//getCurrentDentist').then(res=>{
                     if (res.data.status==="Active")
                         //console.log("ACTIVE");
-                        window.location.href ="/dentist";
+                        window.location ="/dentist";
                 })
                
                 break;
             case 3:
-                window.location.href ="/admin";
+                window.location ="/admin";
                 break;
 
         }
