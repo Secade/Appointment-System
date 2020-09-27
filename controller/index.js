@@ -46,11 +46,15 @@ router.get("/", async (req, res) => {
             //redirects to different pages if there is a session(There are currently only 3 types of users: Doctors, sect, admin)
             let account = await Account.getAccountByUsername(req.session.username);
             if (account.accountType == "secretary") {
-                res.redirect("/secretary");
+                //res.redirect("/secretary");
+                res.send({ message: 1 }); //1 for secretary
+ 
             } else if (account.accountType == "admin") {
-                res.redirect("/admin");
+                //res.redirect("/admin");
+                res.send({ message: 3 }); //3 for admin
             } else if (account.accountType == "dentist") {
-                res.redirect("/dentist");
+                //res.redirect("/dentist");
+                res.send({ message: 2 }); //2 for dentist
             }
         }
     }
