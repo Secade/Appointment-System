@@ -76,7 +76,7 @@ export default class SecretaryNavigationbar extends Component{
                 <div class="item" id="secretary-info-container">
                     <i id="shortcutsInfo" class="large info circle icon"></i>
                 </div>
-                <div class="item" id="secretary-logout-container" onClick={() => this.handleLogout()}>
+                <div class="item" id="secretary-logout-container">
                     <i id="logoutButton" class="large sign out icon link"></i>
                 </div>
             </div>
