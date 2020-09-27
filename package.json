@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm run start --prefix client",
-    "server": "nodemon index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "jest": {
     "testEnvironment": "node",
@@ -46,7 +42,7 @@
     "mongoose": "^5.7.11",
     "node-sass": "^4.14.1",
     "path": "^0.12.7",
-	"hbs": "^4.0.6",
+	  "hbs": "^4.0.6",
     "qs": "^6.9.4",
     "supertest": "^4.0.2",
     "@testing-library/jest-dom": "^4.2.4",
