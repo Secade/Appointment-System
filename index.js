@@ -13,6 +13,8 @@ const path = require("path");
 
 var app = new express();
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.use(cors());
 app.use(express.json())
 
@@ -20,7 +22,7 @@ mongoose.Promise = global.Promise
 
 app.use(urlencoder);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+
 
 //creates a session for the user
 app.use(session({

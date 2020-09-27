@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 import LoginComponent from '../src/components/sign-in/LoginComponent';
+import Secretary from '../src/components/secretary/pages/secretary-view';
 //import DentistPage from '../src/components/dentist/DentistPageComponent';
 /*
 import Navbar from "./components/secretary/small_components/Navbar.component";
@@ -30,6 +31,7 @@ function App() {
      {/*} <LoginComponent></LoginComponent>*/}
     {/*} <DentistPage></DentistPage>*/}
     <Route path ='/' exact component = {LoginComponent} />
+    <Route path ='/secretary' exact component = {Secretary} />
     {/*}  <Route path="/week_all" component={week_all} />
       <Route path="/week_avail" component={week_avail} />
       <Route path="/day_all" component={day_all} />
