@@ -21,6 +21,8 @@ import ResetPasswordModalComponent from '../src/components/sign-in/ResetPassword
 import LoginClarification from '../src/components/sign-in/LoginClarification';
 import DentistPage from '../src/components/dentist/DentistPageComponent';
 */
+
+//
 //This gets called by index.js
 function App() {
   return (
