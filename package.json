@@ -1,21 +1,16 @@
 {
-  "name": "appointment-system",
+  "name": "node-react-starter",
   "version": "1.0.0",
-  "description": "The Access Dental Appointment System aims to simplify the tracking of the appointments scheduled in the clinic by providing a simple yet powerful user interface for quick navigation. The software will provide a simple field for adding, editing, and deleting appointments, as well as quick data view changes to view and perform tasks on appointments in other days as well. The software will also provide easy access to the appointment schedules of different doctors, viewing their own as well as others’ schedules. The software will also employ an admin page that aims to control the dentists and the procedures and the accounts that access the system as well as other necessary details about the residency of the dentists.",
-  "main": "server.js",
-  "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "jest --color",
-    "client-install": "npm install --prefix client",
-    "heroku-postbuild": "npm run rea",
-    "server": "node server.js",
-    "dev": "react-scripts start",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run dev\"",
-    "rea": "react-scripts start",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run start --prefix client",
+    "server": "nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Stanley Sie",
-  "license": "ISC",
   "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
@@ -33,62 +28,32 @@
     "output": "output/coverage/junit/junit.xml",
     "usePathForSuiteName": "true"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "all": "0.0.0",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
-    "hbs": "^4.0.6",
     "jest-junit": "^11.1.0",
     "jquery-address": "^1.6.0",
     "moment": "^2.24.0",
     "moment-business-time": "^0.7.1",
     "mongoose": "^5.7.11",
     "node-sass": "^4.14.1",
-    "nodemon": "^1.19.4",
     "path": "^0.12.7",
     "qs": "^6.9.4",
-    "react": "^16.13.1",
-    "react-datepicker": "^3.1.3",
-    "react-dom": "^16.13.1",
-    "react-modal": "^3.11.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
-    "react-semantic-toasts": "^0.6.5",
-    "react-time-picker": "^4.0.1",
-    "semantic-ui-calendar-react": "^0.15.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^1.1.1",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2"
   },
-  "proxy": "http://localhost:8080",
-  "directories": {
-    "test": "tests"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.4"
   }
 }
