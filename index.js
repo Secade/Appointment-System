@@ -20,6 +20,8 @@ mongoose.Promise = global.Promise
 
 app.use(urlencoder);
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 //creates a session for the user
 app.use(session({
     resave: false,
@@ -50,15 +52,9 @@ app.use('/dentist', dentistRoute)
 
 app.use(require("./controller"));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-
-  const path = require('path');
-  app.get('*', (req,res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
-
-}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
  var server = app.listen(process.env.PORT || 8080, function(){
      console.log("Server is running at port 8080...");
