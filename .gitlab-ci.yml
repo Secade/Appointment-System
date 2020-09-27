@@ -11,17 +11,20 @@
       - production
       # - auto-test      
 
-    # cache:
-    #   paths:
-    #     - node_modules/
+    cache:
+      paths:
+        - node_modules/
 
     install_dependencies:
       stage: builds
       script:
         - npm install
+        - npm run build
+      tags:
+        - docker
       artifacts:
         paths:
-          - node_modules/
+          - dist/
 
     # testing_testing:
     #   stage: test
@@ -32,7 +35,7 @@
       stage: production
       image: ruby:latest
       script:
-        - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+        - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY --skip_cleanup
       only:
         - production     
         
