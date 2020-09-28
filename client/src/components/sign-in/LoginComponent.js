@@ -59,19 +59,19 @@ class LoginComponent extends Component {
         const {history} = this.props;
         switch(type){
             case 1:
-                window.location ="/secretary";
+                window.location.href =window.location.href+"secretary";
                 console.log('sec');
                 break;
             case 2:
                 axios.get('dentist//getCurrentDentist').then(res=>{
                     if (res.data.status==="Active")
                         //console.log("ACTIVE");
-                        window.location ="/dentist";
+                        window.location.href =window.location.href+"dentist";
                 })
                
                 break;
             case 3:
-                window.location ="/admin";
+                window.location.href =window.location.href+"admin";
                 break;
 
         }
@@ -80,13 +80,13 @@ class LoginComponent extends Component {
     redirectToDentist = () => {
         //alert("Home");
         const { history } = this.props;
-        window.location.href = "/dentist"
+        window.location.href = window.location.href+"dentist"
        }
 
        redirectToSecretary = () => {
         //alert("Home");
         const { history } = this.props;
-        window.location.href = "/dentist"
+        window.location.href = window.location.href+"dentist"
        }
 
 
@@ -94,7 +94,7 @@ class LoginComponent extends Component {
         //alert("Admin");
        // const { history } = this.props;
        // history.push('/admin');
-       window.location.href = "/admin";
+       window.location.href = window.location.href+"admin";
        }
 
     onSubmit (e){

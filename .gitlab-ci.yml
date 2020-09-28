@@ -6,26 +6,26 @@
       - gem install dpl
 
     stages:
-      #- builds
-      # - test
+      - builds
+      - test
       - production
-      # - auto-test      
+      - auto-test      
 
-    # cache:
-    #   paths:
-    #     - node_modules/
+    cache:
+      paths:
+        - node_modules/
 
-    # install_dependencies:
-    #   stage: builds
-    #   script:
-    #     - npm install
-    #   artifacts:
-    #     paths:
-    #       - dist/
+    install_dependencies:
+      stage: builds
+      script:
+        - npm install
+      artifacts:
+        paths:
+          - node_modules/
 
-    # testing_testing:
-    #   stage: test
-    #   script: npm test 
+    testing_testing:
+      stage: test
+      script: npm test 
 
     deploying:
       type: deploy
@@ -36,24 +36,24 @@
       only:
         - production     
         
-    # auto-test:
-    #   image: python:latest
-    #   stage: auto-test
-    #   script:
-    #     - apt-get update -qy
-    #     - apt-get install -y --quiet --assume-yes python-dev python-pip unzip wget
-    #     - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-    #     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-    #     - apt update
-    #     - apt install -y google-chrome-stable
-    #     - cp requirements.txt /tmp/requirements.txt
-    #     - pip install -r /tmp/requirements.txt
-    #     - CHROMEDRIVER_VERSION=`wget --no-verbose --output-document - https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-    #     - wget --no-verbose --output-document /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-    #     - unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver
-    #     - chmod +x /opt/chromedriver/chromedriver
-    #     - ln -fs /opt/chromedriver/chromedriver /usr/local/bin/chromedriver
-    #     - robot -v BROWSER:HeadlessChrome -v APP_ENV:test -d tests/automation/report tests/automation
-    #   artifacts:
-    #   only:
-    #     - production
+    auto-test:
+      image: python:latest
+      stage: auto-test
+      script:
+        - apt-get update -qy
+        - apt-get install -y --quiet --assume-yes python-dev python-pip unzip wget
+        - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        - apt update
+        - apt install -y google-chrome-stable
+        - cp requirements.txt /tmp/requirements.txt
+        - pip install -r /tmp/requirements.txt
+        - CHROMEDRIVER_VERSION=`wget --no-verbose --output-document - https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+        - wget --no-verbose --output-document /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        - unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver
+        - chmod +x /opt/chromedriver/chromedriver
+        - ln -fs /opt/chromedriver/chromedriver /usr/local/bin/chromedriver
+        - robot -v BROWSER:HeadlessChrome -v APP_ENV:test -d tests/automation/report tests/automation
+      artifacts:
+      only:
+        - production
