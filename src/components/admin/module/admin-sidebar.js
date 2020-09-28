@@ -1,18 +1,14 @@
 import React from "react";
 import Logo from "./logo.js";
 import { Menu, Button, Icon, Segment } from "semantic-ui-react";
-import axios from 'axios';
+import axios from "axios";
 
 class AdminSidebar extends React.Component {
     handleItemClick(name) {
         this.props.handleItem(name);
-        if (name==='Logout'){
-            
-            axios.get('/logout').then(window.location.href ="/");
-            ;
-
+        if (name === "Logout") {
+            axios.get("/logout").then((window.location.href = "/"));
         }
-
     }
 
     handleModal(name) {
@@ -48,7 +44,7 @@ class AdminSidebar extends React.Component {
         };
 
         return (
-            <Menu secondary vertical style={menu_styling}>
+            <Menu data-testid="sidebar" secondary vertical style={menu_styling}>
                 <Menu.Item style={no_padding} horizontalalign="middle">
                     <Logo />
                 </Menu.Item>
@@ -68,6 +64,7 @@ class AdminSidebar extends React.Component {
                         this.handleItemClick("Dentist");
                         this.handleTable("Dentist");
                     }}
+                    data-testid="dentistButton"
                     id="dentistButton"
                     style={item_styling}
                 >

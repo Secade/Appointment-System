@@ -31,6 +31,7 @@ class AdminCreateModal extends React.Component {
                 <Modal
                     size="tiny"
                     id="create-modal"
+                    data-testid="create-modal"
                     onClose={() => this.handleClose()}
                     onOpen={() => this.handleOpen()}
                     open={open}

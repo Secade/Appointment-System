@@ -1,9 +1,9 @@
 *** Settings ***
 Documentation    Suite description
 Library  DateTime
-Suite Setup       Open Browser To Secretary Page
+Suite Setup       Open Browser To Secretary Page Slow
 Suite Teardown    Close Browser
-Resource    ${CURDIR}${/}..\\login_resource.robot
+Resource    ../login_resource.robot
 
 *** Variables ***
 

@@ -1,9 +1,9 @@
 *** Settings ***
 Documentation    Suite description
 Library  DateTime
-Suite Setup       Open Browser To Secretary Page
+Suite Setup       Open Browser To Secretary Page Slow
 Suite Teardown    Close Browser
-Resource    ${CURDIR}${/}..\\login_resource.robot
+Resource    ../login_resource.robot
 
 *** Variables ***
 
@@ -42,10 +42,13 @@ Week Table View
 	Click Element	secretary-dropdown-view
 	Element Should Contain	table-header-title	Weekly Appointments
 	
+<<<<<<< HEAD
+=======
 #Logout Secretary Account
 #	Click Element	secretary-logout-container
 #	Element Should Be Visible 
 	
+>>>>>>> 2cbc9c14c6721fc82d51296a6d6da403f2885129
 *** Keywords ***
 Input Text Date
 	[Arguments]	${date}

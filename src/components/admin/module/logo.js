@@ -6,6 +6,7 @@ function Logo() {
             centered
             size="massive"
             id="image"
+            data-testid="image"
             src="img/Access Dental Clinic Trans.png"
         />
     );
